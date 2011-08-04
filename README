@@ -1,0 +1,9 @@
+This script will allow you to change your background anywhere that it can be set using nitrogen.
+I wrote it because I couldn't find any automated solution to change the backgrounds on both of my monitors while running only compiz (no Gnome/KDE/XFCE).
+
+Setup:
+Set nitrogen to use a symlink as it's files.  You can either do this by making the symlinks to an image and opening up nitrogen.  Or you can edit the nitrogen config file located at ~/.config/nitrogen/bg-saved.cfg (If you don't have a image name extension in your link nitrogen won't display it in a list)
+Edit my script and set the variables at the top to be what you want.  It should support any number of monitors.
+Run the script (in the background)
+
+I was unable to get nitrogen to work via a cronjob.  I couldn't seem to pass DISPLAY=:0 to the nitrogen command.  Oh well.
