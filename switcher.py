@@ -21,11 +21,15 @@
 import os
 import random
 import time
+import argparse
 from subprocess import check_call
 path = "/home/loki/backgrounds"
 list_path = path + "/list"
 link_files = [path + "/left", path + "/right"]
 sleep_time = 60*5 #seconds * minutes 
+parser = argparse.ArgumentParser(description="Updates your background set by nitrogen")
+parser.add_argument('-n', '--now', action="store_true", default=False, help="Swap now and don't sleep")
+args = parser.parse_args()
 
 def swap_em():
   files = os.listdir(list_path)
@@ -36,10 +40,11 @@ def swap_em():
   output = check_call(["nitrogen", "--restore"])
 
 if __name__ == "__main__":
-  while(True):
+  swap_em()
+  while(not args.now):
     try:
-      swap_em()
       time.sleep(sleep_time)
+      swap_em()
     except KeyboardInterrupt:
       break
 
